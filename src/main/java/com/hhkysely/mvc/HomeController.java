@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 // testi testi testi
+=======
+// hauki on kala
+
+>>>>>>> ekakyselylisays
 
 package com.hhkysely.mvc;
 
