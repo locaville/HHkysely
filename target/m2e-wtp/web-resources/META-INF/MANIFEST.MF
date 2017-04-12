@@ -1,5 +1,15 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: a1503053
 Build-Jdk: 1.8.0_77
+=======
+<<<<<<< HEAD
+Built-By: a1303485
+Build-Jdk: 1.8.0_77
+=======
+Built-By: admin
+Build-Jdk: 1.8.0_121
+>>>>>>> ekakyselylisays
+>>>>>>> a36f4bef75249e94ac4998888cd34010a621a8dd
 Created-By: Maven Integration for Eclipse
 
