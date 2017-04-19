@@ -1,32 +1,20 @@
 package fi.hh.gitgud.kysely.bean;
 
-public class Kysymys {
-	private int id;
-	private String teksti;
-	public Kysymys() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Kysymys(int id, String teksti) {
-		super();
-		this.id = id;
-		this.teksti = teksti;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getTeksti() {
-		return teksti;
-	}
-	public void setTeksti(String teksti) {
-		this.teksti = teksti;
-	}
-	@Override
-	public String toString() {
-		return "Kysymys [id=" + id + ", teksti=" + teksti + "]";
-	}
+public interface Kysymys {
+
+	public abstract int getId();
+
+	public abstract void setId(int id);
+
+	public abstract String getTeksti();
+
+	public abstract void setTeksti(String teksti);
 	
+	public abstract int getKyselyid();
+
+	public abstract void setKyselyid(int kyselyid);
+	
+	public abstract int getTyyppiid();
+
+	public abstract void setTyyppiid(int tyyppiid);
 }
