@@ -1,7 +1,6 @@
-package fi.hh.gitgud.kysely.dao;
+package com.hhkysely.dao;
 
-import java.util.List;
-import fi.hh.gitgud.kysely.bean.Kysymys;
+import com.hhkysely.objects.Kysymys;
 
 public interface kyselyDAO {
 	

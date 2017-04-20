@@ -1,4 +1,4 @@
-package fi.hh.gitgud.kysely.bean;
+package com.hhkysely.objects;
 
 public class KysymysImpl implements Kysymys {
 	private int id;

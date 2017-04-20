@@ -1,4 +1,4 @@
-package fi.hh.gitgud.kysely.bean;
+package com.hhkysely.objects;
 
 public interface Kysymys {
 

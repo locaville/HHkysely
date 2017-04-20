@@ -1,12 +1,14 @@
-package fi.hh.gitgud.kysely.dao;
+package com.hhkysely.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import fi.hh.gitgud.kysely.bean.Kysymys;
-import fi.hh.gitgud.kysely.bean.KysymysImpl;
+import com.hhkysely.objects.Kysymys;
+import com.hhkysely.objects.KysymysImpl;
+
+
 
 
 public class KyselyRowMapper implements RowMapper<Kysymys> {
