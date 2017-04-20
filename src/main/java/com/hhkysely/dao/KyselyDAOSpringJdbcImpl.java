@@ -19,7 +19,7 @@ import com.hhkysely.objects.Kysymys;
 
 
 @Repository
-public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
+public class KyselyDAOSpringJdbcImpl implements kyselyDAO {
 
 	@Inject
 	private JdbcTemplate jdbcTemplate;
