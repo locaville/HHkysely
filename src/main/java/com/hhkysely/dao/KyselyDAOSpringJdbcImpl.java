@@ -16,10 +16,8 @@ import com.hhkysely.objects.Kysymys;
 
 
 
-
-
 @Repository
-public class KyselyDAOSpringJdbcImpl implements kyselyDAO {
+public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 
 	@Inject
 	private JdbcTemplate jdbcTemplate;
@@ -35,23 +33,23 @@ public class KyselyDAOSpringJdbcImpl implements kyselyDAO {
 
 	
 	/**
-	 * Tallettaa parametrina annetun henkil??n tietokantaan.
+	 * Tallettaa parametrina annetun henkilön tietokantaan.
 	 * Tietokannan generoima id asetetaan parametrina annettuun olioon.
 	 */
 	public void talleta(Kysymys k) {
 		final String sql = "insert into kysymys(teksti,kyselyid,tyyppiid) values(?,1,2)";
 		
-		//anonyymi sis??luokka tarvitsee vakioina v??litett??v??t arvot,
-		//jotta roskien keruu onnistuu t??m??n metodin suorituksen p????ttyess??. 
+		//anonyymi sisäluokka tarvitsee vakioina välitettävät arvot,
+		//jotta roskien keruu onnistuu tämän metodin suorituksen päättyessää. 
 		final String teksti = k.getTeksti();
 		final int kyselyid = k.getKyselyid();
 		final int tyyppiid = k.getTyyppiid();
 		
 		
-		//jdbc pist???? generoidun id:n t??nne talteen
+		//jdbc pistää generoidun id:n tänne talteen
 		KeyHolder idHolder = new GeneratedKeyHolder();
 	    
-		//suoritetaan p??ivitys itse m????ritellyll?? PreparedStatementCreatorilla ja KeyHolderilla
+		//suoritetaan päivitys itse määritellyllä PreparedStatementCreatorilla ja KeyHolderilla
 		jdbcTemplate.update(
 	    	    new PreparedStatementCreator() {
 	    	        public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
@@ -64,7 +62,7 @@ public class KyselyDAOSpringJdbcImpl implements kyselyDAO {
 	    	    }, idHolder);
 	    
 		//tallennetaan id takaisin beaniin, koska
-		//kutsujalla pit??isi olla viittaus samaiseen olioon
+		//kutsujalla pitäisi olla viittaus samaiseen olioon
 	    k.setId(idHolder.getKey().intValue());
 
 	}

@@ -1,12 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ taglib uri="http://www.springframework.org/tags/form"  prefix="form"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	</head>
-	<body>
-	<h1>Lis&auml;&auml; kysely</h1>
+<head>
+<link href="<c:url value="resources/css/home.css" />" rel="stylesheet" type="text/css">
+<%-- <link href="<c:url value="resources/css/reset.css" />" rel="stylesheet" type="text/css"> --%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Login</title>
+</head>
+<body>
+
+<h1>Lis&auml;&auml; kysely</h1>
 	<form action="" method="POST">
 	<table>
 		<tr><td>Nimi</td><td><input type="text" name="nimi" placeholder="Kyselyn nimi"/></td></tr>
@@ -20,6 +27,8 @@
 		<tr><td colspan="2" align="right"><input type="submit" value="Lis&auml;&auml; kysely"/></td></tr>
 	</table>
 	</form>
+	
+	
 	<!--
 	<h2>Lis&auml;&auml; kysymys</h2>
 	<form action="" method="POST">
@@ -38,5 +47,15 @@
 	</table>
 	</form>
 	 -->
-	 </body>
+
+
+	
+
+<p><a href="kysymys">Luo Kysymys</a></p>	
+
+<p><a href="/mvc">home</a></p>	
+
+
+
+</body>
 </html>
