@@ -2,7 +2,7 @@ package com.hhkysely.dao;
 
 import com.hhkysely.objects.Kysymys;
 
-public interface KyselyDAO {
+public interface kyselyDAO {
 	
 	public abstract void talleta(Kysymys kysymys);
 	
