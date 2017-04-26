@@ -5,6 +5,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.hhkysely.dao.KyselyDAO;
 import com.hhkysely.objects.KysymysImpl;
 
 /**
@@ -24,16 +27,16 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-//	@Inject
-//	private KyselyDAO dao;
-//	
-//	public KyselyDAO getDAO() {
-//		return dao;
-//	}
-//	
-//	public void setDAO(KyselyDAO dao) {
-//		this.dao = dao;
-//	}
+	@Inject
+	private KyselyDAO dao;
+	
+	public KyselyDAO getDAO() {
+		return dao;
+	}
+	
+	public void setDAO(KyselyDAO dao) {
+		this.dao = dao;
+	}
 	
 	/**
 	 * Tämä metodi käynnistyy kun käynnistetään sovelluksen.

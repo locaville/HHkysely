@@ -6,7 +6,7 @@ public class KysymysImpl implements Kysymys {
 	private int id;
 	private String teksti;
 	private int kyselyid;
-	private Tyyppi tyyppiid;
+	private int tyyppiid;
 	private ArrayList<Vaihtoehto> vaihtoehdot;
 	
 	public int getId() {
@@ -27,10 +27,10 @@ public class KysymysImpl implements Kysymys {
 	public void setKyselyid(int kyselyid) {
 		this.kyselyid = kyselyid;
 	}
-	public Tyyppi getTyyppiid() {
+	public int getTyyppiid() {
 		return tyyppiid;
 	}
-	public void setTyyppiid(Tyyppi tyyppiid) {
+	public void setTyyppiid(int tyyppiid) {
 		this.tyyppiid = tyyppiid;
 	}
 	
