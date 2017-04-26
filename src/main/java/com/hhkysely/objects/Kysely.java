@@ -1,10 +1,13 @@
 package com.hhkysely.objects;
 
+import java.util.ArrayList;
+
 public class Kysely {
 	
 	private String teksti;
 	private String tyyppi;
 	private String tila;
+	private ArrayList<Kysymys> kysymykset;
 	public String getTila() {
 		return tila;
 	}
