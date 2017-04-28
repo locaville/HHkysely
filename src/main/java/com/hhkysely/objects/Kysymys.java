@@ -16,5 +16,5 @@ public interface Kysymys {
 	
 	public abstract Tyyppi getTyyppi();
 
-	public abstract void setTyyppi(Tyyppi tyyppiid);
+	public abstract void setTyyppi(Tyyppi tyyppi);
 }
