@@ -14,13 +14,19 @@
 
 <h1>new Kysymys</h1>
 
-<form:form method="POST" commandName="kysymys" action="valmisKysymys" class="box login">
+<form:form method="POST" modelAttribute="kysymys" action="valmisKysymys" class="box login">
 	<fieldset class="boxBody">
 	  <form:label path="teksti">Kysymyksen teksti</form:label>
 	  <form:input onfocus="true" size="150" path="teksti" placeholder="teksti"></form:input>
 	  <br>
-	  <form:label path="tyyppiid">Kysymyksen tyyppi</form:label>
-	  <form:input path="tyyppiid" placeholder="tyyppiid"></form:input>
+	   <form:select path="tyyppiid">
+		  <form:option path="tyyppiid" value="1">checkbox</form:option>
+		  <form:option path="tyyppiid" value="2">radiobutton</form:option>
+		  <form:option path="tyyppiid" value="3">teksti</form:option>
+		</form:select>
+
+	  <%-- <form:label path="tyyppiid">Kysymyksen tyyppi</form:label>
+	  <form:input path="tyyppiid" placeholder="tyyppiid"></form:input>--%>
 	 
 	
 <%--     <form:radiobutton path="tyyppiid" value="Teksti" />Teksti --%>

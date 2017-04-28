@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page session="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form"  prefix="form"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +18,10 @@
 	<table>
 		<tr><td>Nimi</td><td><input type="text" name="nimi" placeholder="Kyselyn nimi"/></td></tr>
 		<tr><td>Tyyppi</td><td><input type="text" name="tyyppi" placeholder="Koulukysely"/></td></tr>
+		<tr><td>Tila</td><td><input type="text" name="tila" placeholder="Aktiivinen"/></td></tr>
+		<jsp:useBean id="now" class="java.util.Date"/>
+		<tr><td>Luontipvm</td><td><input type="text" name="luontipvm" placeholder="" value="<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" />"/></td></tr>
+		<tr><td>Alkamispvm</td><td><input type="text" name="alkamispvm" placeholder="" value="<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" />"/></td></tr>
 		<!--
 			<tr><td>Tila</td><td><input type="text" name="tila"/></td></tr>
 			<tr><td>LuontiPVM</td><td><input type="text" name="luontipvm"/></td></tr>

@@ -15,7 +15,7 @@
 <h1>Valmis kysymys</h1>
 
 <p>Kysymyksen teksti on: ${kysymys.teksti}</p>
-<p>Kysymyksen tyyppi on: ${kysymys.tyyppiid}</p>
+<p>Kysymyksen tyyppi on: ${tyyppi}</p>
 <!-- Pitää miettiä vielä miten kysymykseen lisätään ID ja KyselyID -->
  
  

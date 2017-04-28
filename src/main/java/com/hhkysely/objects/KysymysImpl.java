@@ -6,9 +6,10 @@ public class KysymysImpl implements Kysymys {
 	private int id;
 	private String teksti;
 	private int kyselyid;
-	private Tyyppi tyyppi;
+	private int tyyppiid;
+	/*private Tyyppi tyyppi;
 	private ArrayList<Vaihtoehto> vaihtoehdot;
-	
+	*/
 	public int getId() {
 		return id;
 	}
@@ -27,16 +28,25 @@ public class KysymysImpl implements Kysymys {
 	public void setKyselyid(int kyselyid) {
 		this.kyselyid = kyselyid;
 	}
+	/*
 	public Tyyppi getTyyppi() {
 		return tyyppi;
 	}
 	public void setTyyppi(Tyyppi tyyppi) {
 		this.tyyppi = tyyppi;
 	}
+	*/
+	
+	public int getTyyppiid() {
+		return tyyppiid;
+	}
+	public void setTyyppiid(int tyyppiid) {
+		this.tyyppiid = tyyppiid;
+	}
 	
 	@Override
 	public String toString() {
-		return "Kysymys [id=" + id + ", teksti=" + teksti + ", kyselyid=" + kyselyid + ", tyyppiid=" + tyyppi + "]";
+		return "Kysymys [id=" + id + ", teksti=" + teksti + ", kyselyid=" + kyselyid + ", tyyppiid=" + tyyppiid + "]";
 	}
 	
 	

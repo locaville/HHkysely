@@ -79,6 +79,9 @@ public class HomeController {
 		
 		logger.info("Valmis Kysymys");
 		
+		logger.info("Tyyppiid= " + kysymys.getTyyppiid());
+		
+		dao.talleta(kysymys);
 		//ModelAndView palauttaa näkymän lisäksi model
 		
 		ModelAndView modelAndView = new ModelAndView();
@@ -86,8 +89,19 @@ public class HomeController {
 		// .setViewName tallenna näkymän niemen 
 		modelAndView.setViewName("valmisKysymys");
 		
+		String tyyppi = "Tyhja";
+		
+		if(kysymys.getTyyppiid()==1){
+			tyyppi="Checkbox";
+		}else if(kysymys.getTyyppiid()==2){
+			tyyppi="Radiobutton";
+		}else if(kysymys.getTyyppiid()==3){
+			tyyppi="Teksti";
+		}
+		
 		// .addObject tallenna model objektin 
 		modelAndView.addObject("kysymys", kysymys);
+		modelAndView.addObject("tyyppi", tyyppi);
 		
 		return modelAndView;
 	}
