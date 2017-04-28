@@ -19,13 +19,16 @@ public class Kysely {
 	private int id;
 
 
-public Kysely (int id, String teksti,String tyyppi,String tila){
+
+public Kysely(int id, String teksti, String tyyppi, String tila,
+		ArrayList<Kysymys> kysymykset) {
 	super();
 	this.id = id;
 	this.teksti = teksti;
 	this.tyyppi = tyyppi;
 	this.tila = tila;
-
+	this.kysymykset = kysymykset;
+	
 }
 
 public Kysely() {

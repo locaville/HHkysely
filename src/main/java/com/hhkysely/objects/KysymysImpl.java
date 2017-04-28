@@ -5,11 +5,23 @@ import java.util.ArrayList;
 public class KysymysImpl implements Kysymys {
 	private int id;
 	private String teksti;
-	private int kyselyid;
 	private int tyyppiid;
 	/*private Tyyppi tyyppi;
 	private ArrayList<Vaihtoehto> vaihtoehdot;
 	*/
+	
+	public KysymysImpl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public KysymysImpl(int id, String teksti, int tyyppiid) {
+		super();
+		this.id = id;
+		this.teksti = teksti;
+		this.tyyppiid = tyyppiid;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -22,12 +34,7 @@ public class KysymysImpl implements Kysymys {
 	public void setTeksti(String teksti) {
 		this.teksti = teksti;
 	}
-	public int getKyselyid() {
-		return kyselyid;
-	}
-	public void setKyselyid(int kyselyid) {
-		this.kyselyid = kyselyid;
-	}
+	
 	/*
 	public Tyyppi getTyyppi() {
 		return tyyppi;
@@ -40,13 +47,14 @@ public class KysymysImpl implements Kysymys {
 	public int getTyyppiid() {
 		return tyyppiid;
 	}
+
 	public void setTyyppiid(int tyyppiid) {
 		this.tyyppiid = tyyppiid;
 	}
 	
 	@Override
 	public String toString() {
-		return "Kysymys [id=" + id + ", teksti=" + teksti + ", kyselyid=" + kyselyid + ", tyyppiid=" + tyyppiid + "]";
+		return "Kysymys [id=" + id + ", teksti=" + teksti + ", kyselyid=" + ", tyyppiid=" + tyyppiid + "]";
 	}
 	
 	

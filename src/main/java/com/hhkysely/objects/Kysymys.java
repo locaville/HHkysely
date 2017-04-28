@@ -10,10 +10,6 @@ public interface Kysymys {
 
 	public abstract void setTeksti(String teksti);
 	
-	public abstract int getKyselyid();
-
-	public abstract void setKyselyid(int kyselyid);
-	
 	//public abstract Tyyppi getTyyppi();
 
 	//public abstract void setTyyppi(Tyyppi tyyppiid);
