@@ -1,9 +1,12 @@
 package com.hhkysely.objects;
 
+import java.util.ArrayList;
+
 public class Vastaus {
 
 	private int id;
 	private String teksti;
+	private ArrayList<Vaihtoehto> vaihtoehdot;
 	public Vastaus() {
 		super();
 		// TODO Auto-generated constructor stub
