@@ -6,8 +6,10 @@ import java.sql.SQLException;
 
 import javax.inject.Inject;
 
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -67,4 +69,5 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 	    k.setId(idHolder.getKey().intValue());
 
 	}
+	
 }

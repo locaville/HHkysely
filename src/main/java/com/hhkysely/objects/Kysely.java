@@ -27,6 +27,10 @@ public Kysely (String teksti,String tyyppi,String tila){
 
 }
 
+public Kysely() {
+	// TODO Auto-generated constructor stub
+}
+
 public int getId() {
 	return id;
 }
