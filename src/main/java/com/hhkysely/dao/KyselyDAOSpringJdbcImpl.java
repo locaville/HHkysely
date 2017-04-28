@@ -13,6 +13,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.hhkysely.objects.Kysymys;
+import com.hhkysely.objects.Tyyppi;
 
 
 
@@ -43,7 +44,7 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 		//jotta roskien keruu onnistuu tämän metodin suorituksen päättyessää. 
 		final String teksti = k.getTeksti();
 		final int kyselyid = k.getKyselyid();
-		final int tyyppiid = k.getTyyppiid();
+		final Tyyppi tyyppi = k.getTyyppi();
 		
 		
 		//jdbc pistää generoidun id:n tänne talteen
@@ -56,7 +57,7 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 	    	            PreparedStatement ps = connection.prepareStatement(sql, new String[] {"id"});
 	    	            ps.setString(1, teksti);
 	    	            ps.setInt(2, kyselyid);
-	    	            ps.setInt(3, tyyppiid);
+	    	            ps.setInt(3, tyyppi.getId());
 	    	            return ps;
 	    	        }
 	    	    }, idHolder);

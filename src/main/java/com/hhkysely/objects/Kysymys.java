@@ -14,7 +14,7 @@ public interface Kysymys {
 
 	public abstract void setKyselyid(int kyselyid);
 	
-	public abstract int getTyyppiid();
+	public abstract Tyyppi getTyyppi();
 
-	public abstract void setTyyppiid(int tyyppiid);
+	public abstract void setTyyppi(Tyyppi tyyppiid);
 }
