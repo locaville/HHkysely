@@ -6,6 +6,8 @@ import com.hhkysely.objects.Kysymys;
 public interface KyselyDAO {
 	
 	public abstract void talleta(Kysymys kysymys);
+	
+	// KESKEN ERÄINEN TALLENNA METODILLE KYSELYLLE public abstract void talleta(Kysely kysely);
 
 	// REST-metodille
 	public abstract Kysely haeKysely(int id) throws Exception;

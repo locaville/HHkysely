@@ -70,14 +70,18 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 
 	}
 
- /*public void talletaKysely(Kysely k) {
-	final String sql = "insert into kysymys(teksti,kyselyid,tyyppiid) values(?,1,?)";
+ /*KESKEN ER�INEN TALLENNA METODI KYSELYILLE
+  * public void talletaKysely(Kysely k) {
+	final String sql = "insert into kysely(nimi,tyyppi,tila,alkamispvm,luontipvm) values(?,?,?,?,?)";
 	
 	//anonyymi sisäluokka tarvitsee vakioina välitettävät arvot,
 	//jotta roskien keruu onnistuu tämän metodin suorituksen päättyessää. 
-	final String teksti = k.getTeksti();
-	final int kyselyid = k.getKyselyid();
-	final int tyyppiid = k.getTyyppiid();
+	final String nimi = k.getNimi();
+	final String tyyppi = k.getTyyppi();
+	final String tila = k.getTila();
+	final String alkamispvm = k.getAlkamispvm();
+	final String luontipvm = k.getLuontipvm();
+	
 	//final Tyyppi tyyppi = k.getTyyppi();
 	
 	
@@ -89,10 +93,11 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
     	    new PreparedStatementCreator() {
     	        public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
     	            PreparedStatement ps = connection.prepareStatement(sql, new String[] {"id"});
-    	            ps.setString(1, teksti);
-    	            //ps.setInt(2, kyselyid);
-    	            ps.setInt(2, tyyppiid);
-    	            //ps.setInt(3, tyyppi.getId());
+    	            ps.setString(1, nimi);
+    	            ps.setString(2, tyyppi);
+    	            ps.setString(3, tila);
+    	            ps.setString(4, alkamispvm);
+    	            ps.setString(5, luontipvm);
     	            return ps;
     	        }
     	    }, idHolder);
