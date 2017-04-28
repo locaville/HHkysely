@@ -14,6 +14,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import com.hhkysely.objects.Kysely;
 import com.hhkysely.objects.Kysymys;
 import com.hhkysely.objects.Tyyppi;
 
@@ -69,5 +70,24 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 	    k.setId(idHolder.getKey().intValue());
 
 	}
+	
+	// En ole varma onko oikein
+	@Override   
+	public Kysely haeKysely(int id) throws Exception {
+		
+		String sql = "select kysymysid, teksti, tyyppiid,  from kysymys where kyselyid = ?";
+		Object[] parametrit = new Object[] { id };
+		RowMapper<Kysymys> mapper = new KyselyRowMapper();
+		
+		Kysely kysely;
+		try { 
+			kysely = (Kysely) jdbcTemplate.queryForObject(sql , parametrit, mapper);
+		    } catch(IncorrectResultSizeDataAccessException e) {
+		    	throw new Exception(e);
+		    }
+
+		return kysely;
+	}
+		
 	
 }
