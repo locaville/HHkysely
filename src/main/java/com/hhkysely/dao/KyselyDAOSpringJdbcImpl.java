@@ -3,7 +3,6 @@ package com.hhkysely.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Repository;
 
 import com.hhkysely.objects.Kysely;
 import com.hhkysely.objects.Kysymys;
-import com.hhkysely.objects.Vastaus;
 
 
 
@@ -78,14 +76,10 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 		return null;
 	}
 
-	@Override
-	public List<Vastaus> talletaVastauksetRest() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
+	
 
- /*KESKEN ER�INEN TALLENNA METODI KYSELYILLE
+ /*KESKEN ER�INEN TALLENNA METODI KYSELYILLE
   * public void talletaKysely(Kysely k) {
 	final String sql = "insert into kysely(nimi,tyyppi,tila,alkamispvm,luontipvm) values(?,?,?,?,?)";
 	//anonyymi sisäluokka tarvitsee vakioina välitettävät arvot,
