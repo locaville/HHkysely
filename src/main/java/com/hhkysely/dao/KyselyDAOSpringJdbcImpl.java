@@ -3,6 +3,7 @@ package com.hhkysely.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -12,8 +13,9 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import com.hhkysely.objects.Kysely;
 import com.hhkysely.objects.Kysymys;
-import com.hhkysely.objects.Tyyppi;
+import com.hhkysely.objects.Vastaus;
 
 
 
@@ -43,8 +45,8 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 		//anonyymi sisäluokka tarvitsee vakioina välitettävät arvot,
 		//jotta roskien keruu onnistuu tämän metodin suorituksen päättyessää. 
 		final String teksti = k.getTeksti();
-		final int kyselyid = k.getKyselyid();
-		final int tyyppiid = k.getTyyppiid();
+		final int id = k.getId();
+		final int tyyppi = k.getTyyppiid();
 		//final Tyyppi tyyppi = k.getTyyppi();
 		
 		
@@ -58,7 +60,7 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 	    	            PreparedStatement ps = connection.prepareStatement(sql, new String[] {"id"});
 	    	            ps.setString(1, teksti);
 	    	            //ps.setInt(2, kyselyid);
-	    	            ps.setInt(2, tyyppiid);
+	    	            ps.setInt(2, tyyppi);
 	    	            //ps.setInt(3, tyyppi.getId());
 	    	            return ps;
 	    	        }
@@ -70,18 +72,27 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 
 	}
 
- /*KESKEN ER�INEN TALLENNA METODI KYSELYILLE
-  * public void talletaKysely(Kysely k) {
-	final String sql = "insert into kysely(nimi,tyyppi,tila,alkamispvm,luontipvm) values(?,?,?,?,?)";
+	@Override
+	public Kysely haeKysely(int id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Vastaus> talletaVastauksetRest() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+ /*public void talletaKysely(Kysely k) {
+	final String sql = "insert into kysymys(teksti,kyselyid,tyyppiid) values(?,1,?)";
 	
 	//anonyymi sisäluokka tarvitsee vakioina välitettävät arvot,
 	//jotta roskien keruu onnistuu tämän metodin suorituksen päättyessää. 
-	final String nimi = k.getNimi();
-	final String tyyppi = k.getTyyppi();
-	final String tila = k.getTila();
-	final String alkamispvm = k.getAlkamispvm();
-	final String luontipvm = k.getLuontipvm();
-	
+	final String teksti = k.getTeksti();
+	final int kyselyid = k.getKyselyid();
+	final int tyyppiid = k.getTyyppiid();
 	//final Tyyppi tyyppi = k.getTyyppi();
 	
 	
@@ -93,11 +104,10 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
     	    new PreparedStatementCreator() {
     	        public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
     	            PreparedStatement ps = connection.prepareStatement(sql, new String[] {"id"});
-    	            ps.setString(1, nimi);
-    	            ps.setString(2, tyyppi);
-    	            ps.setString(3, tila);
-    	            ps.setString(4, alkamispvm);
-    	            ps.setString(5, luontipvm);
+    	            ps.setString(1, teksti);
+    	            //ps.setInt(2, kyselyid);
+    	            ps.setInt(2, tyyppiid);
+    	            //ps.setInt(3, tyyppi.getId());
     	            return ps;
     	        }
     	    }, idHolder);

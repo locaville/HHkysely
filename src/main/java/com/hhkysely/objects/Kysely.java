@@ -4,21 +4,16 @@ import java.util.ArrayList;
 
 public class Kysely {
 	
+	private int id;
 	private String teksti;
 	private String tyyppi;
 	private String tila;
 	private ArrayList<Kysymys> kysymykset;
-	public String getTila() {
-		return tila;
-	}
-
-	public void setTila(String tila) {
-		this.tila = tila;
-	}
-
-	private int id;
+	
+	
 
 
+	
 
 public Kysely(int id, String teksti, String tyyppi, String tila,
 		ArrayList<Kysymys> kysymykset) {
@@ -59,6 +54,13 @@ public Kysymys getKysymys(int index) {
 	return null;
 }
 
+public String getTila() {
+	return tila;
+}
+
+public void setTila(String tila) {
+	this.tila = tila;
+}
 
 public int getId() {
 	return id;
