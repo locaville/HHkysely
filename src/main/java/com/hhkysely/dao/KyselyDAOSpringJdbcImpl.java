@@ -78,6 +78,12 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 		return null;
 	}
 
+	@Override
+	public List<Vastaus> talletaVastauksetRest() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
  /*KESKEN ERÄINEN TALLENNA METODI KYSELYILLE
   * public void talletaKysely(Kysely k) {
