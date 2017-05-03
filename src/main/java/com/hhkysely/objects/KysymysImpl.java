@@ -6,9 +6,9 @@ public class KysymysImpl implements Kysymys {
 	private int id;
 	private String teksti;
 	private int tyyppiid;
-	/*private Tyyppi tyyppi;
+	//private Tyyppi tyyppi;
 	private ArrayList<Vaihtoehto> vaihtoehdot;
-	*/
+	
 	
 	public KysymysImpl() {
 		super();
@@ -35,14 +35,6 @@ public class KysymysImpl implements Kysymys {
 		this.teksti = teksti;
 	}
 	
-	/*
-	public Tyyppi getTyyppi() {
-		return tyyppi;
-	}
-	public void setTyyppi(Tyyppi tyyppi) {
-		this.tyyppi = tyyppi;
-	}
-	*/
 	
 	public int getTyyppiid() {
 		return tyyppiid;

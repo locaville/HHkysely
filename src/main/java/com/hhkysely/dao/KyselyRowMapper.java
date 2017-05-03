@@ -28,12 +28,8 @@ public class KyselyRowMapper implements RowMapper<Kysymys> {
 
 	public Kysymys mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Kysymys k = new KysymysImpl();
-		Tyyppi tyyppi = new Tyyppi();
 		k.setTeksti(rs.getString("teksti"));
-		k.setKyselyid(rs.getInt("kyselyid"));
-		tyyppi.setId(rs.getInt("tyyppiid"));
-		tyyppi.setNimi(rs.getString("nimi")); //Tämä ei ehkä välttämätön?
-		k.setTyyppi(tyyppi);
+		k.setTyyppiid(rs.getInt("tyyppiid"));
 		k.setId(rs.getInt("id"));
 		
 		return k;

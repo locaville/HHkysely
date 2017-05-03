@@ -12,6 +12,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import com.hhkysely.objects.Kysely;
 import com.hhkysely.objects.Kysymys;
 import com.hhkysely.objects.Tyyppi;
 
@@ -43,7 +44,6 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 		//anonyymi sisäluokka tarvitsee vakioina välitettävät arvot,
 		//jotta roskien keruu onnistuu tämän metodin suorituksen päättyessää. 
 		final String teksti = k.getTeksti();
-		final int kyselyid = k.getKyselyid();
 		final int tyyppiid = k.getTyyppiid();
 		//final Tyyppi tyyppi = k.getTyyppi();
 		
@@ -68,6 +68,12 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 		//kutsujalla pitäisi olla viittaus samaiseen olioon
 	    k.setId(idHolder.getKey().intValue());
 
+	}
+
+	@Override
+	public Kysely haeKysely(int id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
  /*KESKEN ER�INEN TALLENNA METODI KYSELYILLE
