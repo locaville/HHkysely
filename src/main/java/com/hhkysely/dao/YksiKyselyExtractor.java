@@ -13,13 +13,12 @@ import com.hhkysely.objects.Kysely;
 import com.hhkysely.objects.Kysymys;
 import com.hhkysely.objects.KysymysImpl;
 
-public class KyselyExtractor implements ResultSetExtractor {
+public class YksiKyselyExtractor implements ResultSetExtractor<Kysely> {
 
 	@Override
-	public Object extractData(ResultSet rs) throws SQLException,
+	public Kysely extractData(ResultSet rs) throws SQLException,
 			DataAccessException {
         Map<Integer, Kysely> map = new HashMap<Integer, Kysely>();
-        ArrayList<Kysymys> kysymykset = new ArrayList<Kysymys>();
         Kysely kysely = null;
         while (rs.next()) {
         	Integer id = rs.getInt("kyselyid");
@@ -28,16 +27,16 @@ public class KyselyExtractor implements ResultSetExtractor {
         		String teksti = rs.getString("nimi");
         		String tyyppi = rs.getString("tyyppi");
         		String tila = rs.getString("tila");
-        		kysely = new Kysely(id, teksti, tyyppi, tila, kysymykset);
+        		kysely = new Kysely(id, teksti, tyyppi, tila, null);
         		map.put(id, kysely);
         	}
         	Kysymys kysymys = new KysymysImpl();
         	kysymys.setId(rs.getInt("kysymysid"));
         	kysymys.setTeksti(rs.getString("teksti"));
         	kysymys.setTyyppiid(rs.getInt("tyyppiid"));
-        	kysymykset.add(kysymys);
+        	kysely.addKysymys(kysymys);
         }
-        return new ArrayList<Kysely>(map.values());
+        return kysely;
 	}
 
 }

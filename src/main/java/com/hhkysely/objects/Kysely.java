@@ -27,13 +27,38 @@ public Kysely(int id, String teksti, String tyyppi, String tila,
 	this.teksti = teksti;
 	this.tyyppi = tyyppi;
 	this.tila = tila;
-	this.kysymykset = kysymykset;
-	
+	if (kysymykset == null){
+		this.kysymykset = new ArrayList<Kysymys>();
+	}else {
+		this.kysymykset = kysymykset;
+	}
 }
 
 public Kysely() {
-	// TODO Auto-generated constructor stub
+	super();
+	this.id = 0;
+	this.teksti = null;
+	this.tyyppi = null;
+	this.tila = null;
+	this.kysymykset = new ArrayList<Kysymys>();
 }
+
+public void addKysymys(Kysymys kysymys) {
+	if (kysymys != null) {
+		this.kysymykset.add(kysymys);
+	}
+}
+
+public Kysymys getKysymys(int index) {
+	if (index >= 0 && index < this.kysymykset.size()){
+		return this.kysymykset.get(index);
+	}else {
+		System.out.println("Indeksi ei kelpaa!");
+	}
+	
+	return null;
+}
+
 
 public int getId() {
 	return id;
