@@ -8,8 +8,9 @@ public class Vastaus {
 	private String teksti;
 	private int kysymysid;
 	private ArrayList<Vaihtoehto> vaihtoehdot;
+
 	
-	//Constructor
+
 	public Vastaus() {
 		super();
 		// TODO Auto-generated constructor stub
