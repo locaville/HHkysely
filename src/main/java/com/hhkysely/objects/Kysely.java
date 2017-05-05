@@ -9,11 +9,7 @@ public class Kysely {
 	private String tyyppi;
 	private String tila;
 	private ArrayList<Kysymys> kysymykset;
-	
-	
-
-
-	
+		
 
 public Kysely(int id, String teksti, String tyyppi, String tila,
 		ArrayList<Kysymys> kysymykset) {

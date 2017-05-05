@@ -14,4 +14,6 @@ public interface Kysymys {
 	
 	public abstract void setTyyppiid(int tyyppiid);
 	
+	
+	
 }

@@ -2,9 +2,15 @@ package com.hhkysely.objects;
 
 public class Vaihtoehto {
 
+	
 	private String teksti;
 	private int id;
 
+	
+	public Vaihtoehto() {
+		super();
+		
+	}
 
 public Vaihtoehto (String teksti){
 	super();

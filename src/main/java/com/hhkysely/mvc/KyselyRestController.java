@@ -32,9 +32,9 @@ public class KyselyRestController {
 		// JSON Testi lähetykset
 		Kysely kyselyTest = new Kysely();
 		kyselyTest.setId(id);
-//		kyselyTest.setTeksti("teksti");
-//		kyselyTest.setTila("avoin");
-//		kyselyTest.setTyyppi("tyypitön");
+		kyselyTest.setTeksti("Testikysely");
+		kyselyTest.setTila("avoin");
+		kyselyTest.setTyyppi("tyypitön");
 		return  kyselyTest;
 	}
 	
