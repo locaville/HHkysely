@@ -21,13 +21,21 @@ public class KyselyRestController {
 	@Inject
 	KyselyDAO dao;
 
-	@RequestMapping(value="kyselyt/{id}/kysymykset", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value="/kyselyt/{id}/kysymykset", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public  Kysely haeKyselyJSON(@PathVariable("id") int id) throws Exception {
+		
 		Kysely kysely = dao.haeKysely(id);
 		//tulee ilmoitus konsoliin että metodi on kutsuttu
 		logger.info("haeKysely");
-		return  kysely;
+		
+		// JSON Testi lähetykset
+		Kysely kyselyTest = new Kysely();
+		kyselyTest.setId(id);
+//		kyselyTest.setTeksti("teksti");
+//		kyselyTest.setTila("avoin");
+//		kyselyTest.setTyyppi("tyypitön");
+		return  kyselyTest;
 	}
 	
 	

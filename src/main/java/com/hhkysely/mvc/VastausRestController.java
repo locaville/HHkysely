@@ -13,7 +13,7 @@ import com.hhkysely.objects.Vastaus;
 
 public class VastausRestController {
 	
-	@RequestMapping(value="kyselyt/{id}/vastaukset/", method = RequestMethod.POST, consumes = "application/json")
+	@RequestMapping(value="/kyselyt/{id}/vastaukset/", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<String> talletaVastaukset( @PathVariable("id") int id, @RequestBody List<Vastaus>vastaukset) {
 	//	dao.talletaVastaukset(id, );
 		return new ResponseEntity<String>(HttpStatus.OK);
