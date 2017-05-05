@@ -7,6 +7,19 @@ public class Vastaus {
 	private int id;
 	private String teksti;
 	private ArrayList<Vaihtoehto> vaihtoehdot;
+	private int kysymysid;
+	public ArrayList<Vaihtoehto> getVaihtoehdot() {
+		return vaihtoehdot;
+	}
+	public void setVaihtoehdot(ArrayList<Vaihtoehto> vaihtoehdot) {
+		this.vaihtoehdot = vaihtoehdot;
+	}
+	public int getKysymysid() {
+		return kysymysid;
+	}
+	public void setKysymysid(int kysymysid) {
+		this.kysymysid = kysymysid;
+	}
 	public Vastaus() {
 		super();
 		// TODO Auto-generated constructor stub
