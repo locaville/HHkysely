@@ -64,6 +64,14 @@ public class HomeController {
 		return "create";
 	}
 	
+	@RequestMapping(value = "/restapi", method = RequestMethod.GET)
+	public String restapi(Locale locale, Model model) {
+		logger.info("REST API");
+		
+				
+		return "restapi";
+	}
+	
 	
 	@RequestMapping(value = "/kysymys", method = RequestMethod.GET)
 	

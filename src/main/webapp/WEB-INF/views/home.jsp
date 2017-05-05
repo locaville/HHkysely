@@ -11,6 +11,7 @@
 <h1>Tänne laitetaan myöhemmin kirjautumisen</h1>
 
 	 <p><a href="create">create</a></p>	
+	 <p><a href="restapi">REST API</a>
 	 
 </body>
 </html>
