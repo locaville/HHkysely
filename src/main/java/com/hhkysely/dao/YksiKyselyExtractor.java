@@ -30,11 +30,18 @@ public class YksiKyselyExtractor implements ResultSetExtractor<Kysely> {
         		kysely = new Kysely(id, teksti, tyyppi, tila, null);
         		map.put(id, kysely);
         	}
-        	Kysymys kysymys = new KysymysImpl();
-        	kysymys.setId(rs.getInt("kysymysid"));
-        	kysymys.setTeksti(rs.getString("teksti"));
-        	kysymys.setTyyppiid(rs.getInt("tyyppiid"));
-        	kysely.addKysymys(kysymys);
+        	
+        	Kysymys kysymys = null;
+        	while (rs.next()) {
+        		int kysymysid = rs.getInt("kysymysid");
+        		
+        	}
+        	
+//        	Kysymys kysymys = new KysymysImpl();
+//        	kysymys.setId(rs.getInt("kysymysid"));
+//        	kysymys.setTeksti(rs.getString("teksti"));
+//        	kysymys.setTyyppiid(rs.getInt("tyyppiid"));
+//        	kysely.addKysymys(kysymys);
         }
         return kysely;
 	}

@@ -12,14 +12,22 @@ public class KysymysImpl implements Kysymys {
 	
 	public KysymysImpl() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.id = 0;
+		this.teksti = null;
+		this.tyyppiid = 0;
+		this.vaihtoehdot = new ArrayList<Vaihtoehto>();
 	}
 	
-	public KysymysImpl(int id, String teksti, int tyyppiid) {
+	public KysymysImpl(int id, String teksti, int tyyppiid, ArrayList<Vaihtoehto> vaihtoehdot) {
 		super();
 		this.id = id;
 		this.teksti = teksti;
 		this.tyyppiid = tyyppiid;
+		if (vaihtoehdot == null){
+			this.vaihtoehdot = new ArrayList<Vaihtoehto>();
+		}else {
+			this.vaihtoehdot = vaihtoehdot;
+		}
 	}
 
 	public int getId() {
