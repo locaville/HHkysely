@@ -14,4 +14,8 @@ public interface Kysymys {
 	
 	public abstract void setTyyppiid(int tyyppiid);
 	
+	public abstract void addVaihtoehto(Vaihtoehto vaihtoehto);
+	
+	public abstract Vaihtoehto getVaihtoehto(int index);
+	
 }

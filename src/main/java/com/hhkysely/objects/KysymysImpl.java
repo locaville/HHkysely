@@ -29,6 +29,22 @@ public class KysymysImpl implements Kysymys {
 			this.vaihtoehdot = vaihtoehdot;
 		}
 	}
+	
+	public void addVaihtoehto(Vaihtoehto vaihtoehto) {
+		if (vaihtoehto != null) {
+			this.vaihtoehdot.add(vaihtoehto);
+		}
+	}
+	
+	public Vaihtoehto getVaihtoehto(int index) {
+		if (index >= 0 && index < this.vaihtoehdot.size()) {
+			return this.vaihtoehdot.get(index);
+		}else {
+			System.out.println("Indeksi ei kelpaa!");
+		}
+		
+		return null;
+	}
 
 	public int getId() {
 		return id;

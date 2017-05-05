@@ -3,6 +3,11 @@ package com.hhkysely.objects;
 public class Vaihtoehto {
 
 	private String teksti;
+	public Vaihtoehto(String teksti, int id) {
+		super();
+		this.teksti = teksti;
+		this.id = id;
+	}
 	private int id;
 
 
