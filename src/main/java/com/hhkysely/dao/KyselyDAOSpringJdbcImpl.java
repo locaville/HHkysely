@@ -6,14 +6,18 @@ import java.sql.SQLException;
 
 import javax.inject.Inject;
 
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.hhkysely.objects.Kysely;
 import com.hhkysely.objects.Kysymys;
+
 
 
 
@@ -72,9 +76,22 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 
 	@Override
 	public Kysely haeKysely(int id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM kysely INNER JOIN kysymys ON kysely.kyselyid=kysymys.kyselyid INNER JOIN tyyppi ON kysymys.tyyppiid=tyyppi.tyyppiid LEFT JOIN vaihtoehto ON kysymys.kysymysid=vaihtoehto.kysymysid WHERE kysely.kyselyid="+ id +" ORDER BY kysymys.kysymysid;";
+		Object[] parametrit = new Object[] { id };
+		ResultSetExtractor<Kysely> extractor = new YksiKyselyExtractor();
+		
+	    Kysely k;
+	    try { 
+	    	k = jdbcTemplate.query(sql, extractor);
+	    	//k = jdbcTemplate.queryForObject(sql , parametrit, mapper);
+	    } catch(IncorrectResultSizeDataAccessException e) {
+	    	throw new Exception(e);
+	    }
+	    return k;
+	              
 	}
+	
+
 
 
 	

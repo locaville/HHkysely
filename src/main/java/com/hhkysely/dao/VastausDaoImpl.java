@@ -6,6 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -15,6 +18,17 @@ import com.hhkysely.objects.Vaihtoehto;
 import com.hhkysely.objects.Vastaus;
 
 public class VastausDaoImpl implements VastausDAO {
+	
+	@Inject
+	private JdbcTemplate jdbcTemplate;
+	
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
+	}
+	
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
 
 	@Override
 	public void talletaVastaukset(int id, List<Vastaus> vastaukset) {
@@ -25,7 +39,7 @@ public class VastausDaoImpl implements VastausDAO {
 	
 				final String teksti = vastaukset.get(i).getTeksti();
 				final int kysymysid = vastaukset.get(i).getKysymysid();
-				final int vastaajaid = vastaukset.get(i).getVastaajaid();
+				final int vastaajaid = vastaukset.get(i).getId();
 				//final ArrayList<Vaihtoehto> vaihtoehdot = vastaukset.get(i).getVaihtoehdot();
 				final int vaihtoehtoid = vastaukset.get(i).getVaihtoehdot().get(x).getId();
 				final String vaihtoehtoteksti = vastaukset.get(i).getVaihtoehdot().get(x).getTeksti();
