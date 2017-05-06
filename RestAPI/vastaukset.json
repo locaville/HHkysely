@@ -1,0 +1,11 @@
+{"id": 435, "vastaukset": [
+{"id": 0, "kysymysid": 2, "teksti": null, "vaihtoehdot": [
+{"id": 5, "teksti": "Kun ei ole stressia"},
+{"id": 6, "teksti": "Kun ruoka on hyvaa"}]},
+{"id": 0, "kysymysid": 3, "teksti": "kylla", "vaihtoehdot": []},
+{"id": 0, "kysymysid": 4, "teksti": null, "vaihtoehdot": [
+{"id": 6, "teksti": "Aina"},
+{"id": 7, "teksti": "Joskus"},
+{"id": 8, "teksti": "Ei koskaan"}]}
+
+]}
