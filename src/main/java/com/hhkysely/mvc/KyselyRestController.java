@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hhkysely.dao.KyselyDAO;
 import com.hhkysely.objects.Kysely;
 
+
 @Controller
 public class KyselyRestController {
 	
@@ -30,11 +31,12 @@ public class KyselyRestController {
 		logger.info("haeKysely");
 		
 		// JSON Testi lähetykset
-		Kysely kyselyTest = new Kysely();
+		Kysely kyselyTest = new Kysely();		
 		kyselyTest.setId(id);
 		kyselyTest.setTeksti("Testikysely");
 		kyselyTest.setTila("avoin");
 		kyselyTest.setTyyppi("tyypitön");
+		
 		return  kyselyTest;
 	}
 	
