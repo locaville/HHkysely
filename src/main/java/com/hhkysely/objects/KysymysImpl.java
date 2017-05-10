@@ -67,11 +67,14 @@ public class KysymysImpl implements Kysymys {
 	public void setTyyppiid(int tyyppiid) {
 		this.tyyppiid = tyyppiid;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Kysymys [id=" + id + ", teksti=" + teksti + ", kyselyid=" + ", tyyppiid=" + tyyppiid + "]";
+		return "KysymysImpl [id=" + id + ", teksti=" + teksti + ", tyyppiid="
+				+ tyyppiid + ", vaihtoehdot=" + vaihtoehdot + "]";
 	}
+	
+	
 	
 	
 }

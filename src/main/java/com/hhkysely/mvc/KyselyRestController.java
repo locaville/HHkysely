@@ -26,18 +26,18 @@ public class KyselyRestController {
 	@ResponseBody
 	public  Kysely haeKyselyJSON(@PathVariable("id") int id) throws Exception {
 		
-		Kysely kysely = dao.haeKysely(id);
+		 	Kysely kysely = dao.haeKysely(id);
 		//tulee ilmoitus konsoliin että metodi on kutsuttu
 		logger.info("haeKysely");
 		
 		// JSON Testi lähetykset
-		Kysely kyselyTest = new Kysely();		
-		kyselyTest.setId(id);
-		kyselyTest.setTeksti("Testikysely");
-		kyselyTest.setTila("avoin");
-		kyselyTest.setTyyppi("tyypitön");
+//		Kysely kyselyTest = new Kysely();		
+//		kyselyTest.setId(id);
+//		kyselyTest.setTeksti("Testikysely");
+//		kyselyTest.setTila("avoin");
+//		kyselyTest.setTyyppi("tyypitön");
 		
-		return  kyselyTest;
+		return  kysely;
 	}
 	
 	

@@ -76,14 +76,13 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 
 	@Override
 	public Kysely haeKysely(int id) throws Exception {
-		String sql = "SELECT * FROM kysely INNER JOIN kysymys ON kysely.kyselyid=kysymys.kyselyid INNER JOIN tyyppi ON kysymys.tyyppiid=tyyppi.tyyppiid LEFT JOIN vaihtoehto ON kysymys.kysymysid=vaihtoehto.kysymysid WHERE kysely.kyselyid="+ id +" ORDER BY kysymys.kysymysid;";
+		String sql = "SELECT * FROM kysely INNER JOIN kysymys ON kysely.kyselyid=kysymys.kyselyid LEFT JOIN vaihtoehto ON kysymys.kysymysid=vaihtoehto.kysymysid WHERE kysely.kyselyid=? ORDER BY kysymys.kysymysid;";
 		Object[] parametrit = new Object[] { id };
 		ResultSetExtractor<Kysely> extractor = new YksiKyselyExtractor();
 		
 	    Kysely k;
 	    try { 
-	    	k = jdbcTemplate.query(sql, extractor);
-	    	//k = jdbcTemplate.queryForObject(sql , parametrit, mapper);
+	    	k = jdbcTemplate.query(sql, parametrit, extractor);
 	    } catch(IncorrectResultSizeDataAccessException e) {
 	    	throw new Exception(e);
 	    }
@@ -91,7 +90,7 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 	              
 	}
 	
-
+//SELECT * FROM kysely INNER JOIN kysymys ON kysely.kyselyid=kysymys.kyselyid LEFT JOIN vaihtoehto ON kysymys.kysymysid=vaihtoehto.kysymysid WHERE kysely.kyselyid=1 ORDER BY kysymys.kysymysid;
 
 
 	

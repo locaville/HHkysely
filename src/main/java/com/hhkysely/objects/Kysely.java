@@ -77,9 +77,12 @@ public String getTyyppi(){
 public void setTyyppi(String tyyppi){
 	this.tyyppi = tyyppi;
 }
-	
+
 @Override
 public String toString() {
-	return "Vaihtoehto [id=" + id + ", teksti=" + teksti+ "]";
+	return "Kysely [id=" + id + ", teksti=" + teksti + ", tyyppi=" + tyyppi
+			+ ", tila=" + tila + ", kysymykset=" + kysymykset + "]";
 }
+	
+
 }

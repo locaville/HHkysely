@@ -1,0 +1,1 @@
+SELECT * FROM kysely INNER JOIN kysymys ON kysely.kyselyid=kysymys.kyselyid LEFT JOIN vaihtoehto ON kysymys.kysymysid=vaihtoehto.kysymysid WHERE kysely.kyselyid=1 ORDER BY kysymys.kysymysid;
