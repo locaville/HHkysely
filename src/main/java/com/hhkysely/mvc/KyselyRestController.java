@@ -29,7 +29,7 @@ public class KyselyRestController {
 		 	Kysely kysely = dao.haeKysely(id);
 		//tulee ilmoitus konsoliin että metodi on kutsuttu
 		logger.info("haeKysely");
-		
+		System.out.println(kysely.toString());
 		// JSON Testi lähetykset
 //		Kysely kyselyTest = new Kysely();		
 //		kyselyTest.setId(id);

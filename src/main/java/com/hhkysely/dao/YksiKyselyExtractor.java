@@ -54,20 +54,7 @@ public class YksiKyselyExtractor implements ResultSetExtractor<Kysely> {
 				}
 
 			}
-//			for (int i = 0; i < vaihtmap.size(); i++) {
-//				kysymys.addVaihtoehto(vaihtmap.get(i));
-//			}
 
-//			for (int i = 0; i < kysmap.size(); i++) {
-//				kysely.addKysymys(kysmap.get(i));
-//			}
-
-			// Kysymys kysymys = new KysymysImpl();
-			// kysymys.setId(rs.getInt("kysymysid"));
-			// kysymys.setTeksti(rs.getString("teksti"));
-			// kysymys.setTyyppiid(rs.getInt("tyyppiid"));
-			// kysely.addKysymys(kysymys);
-		
 
 		return kysely;
 	}
