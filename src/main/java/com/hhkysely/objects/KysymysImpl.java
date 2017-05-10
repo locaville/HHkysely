@@ -18,6 +18,14 @@ public class KysymysImpl implements Kysymys {
 		this.vaihtoehdot = new ArrayList<Vaihtoehto>();
 	}
 	
+	public ArrayList<Vaihtoehto> getVaihtoehdot() {
+		return vaihtoehdot;
+	}
+
+	public void setVaihtoehdot(ArrayList<Vaihtoehto> vaihtoehdot) {
+		this.vaihtoehdot = vaihtoehdot;
+	}
+
 	public KysymysImpl(int id, String teksti, int tyyppiid, ArrayList<Vaihtoehto> vaihtoehdot) {
 		super();
 		this.id = id;

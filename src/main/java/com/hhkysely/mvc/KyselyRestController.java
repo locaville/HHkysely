@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hhkysely.dao.KyselyDAO;
 import com.hhkysely.objects.Kysely;
+import com.hhkysely.objects.Kysymys;
+import com.hhkysely.objects.KysymysImpl;
 
 
 @Controller
@@ -29,7 +31,10 @@ public class KyselyRestController {
 		 	Kysely kysely = dao.haeKysely(id);
 		//tulee ilmoitus konsoliin ett√§ metodi on kutsuttu
 		logger.info("haeKysely");
-		System.out.println(kysely.toString());
+//		Kysymys kysymys = new KysymysImpl(55, "nimi", 23466, null);
+//		Kysely k = new Kysely(234, "jeje", "normikysely", "suljettu", null);
+		//k.addKysymys(kysymys);
+		//System.out.println("t‰m‰ tulee controllerista"+kysely.toString());
 		// JSON Testi l√§hetykset
 //		Kysely kyselyTest = new Kysely();		
 //		kyselyTest.setId(id);

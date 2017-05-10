@@ -25,6 +25,14 @@ public Kysely(int id, String teksti, String tyyppi, String tila,
 	}
 }
 
+public ArrayList<Kysymys> getKysymykset() {
+	return kysymykset;
+}
+
+public void setKysymykset(ArrayList<Kysymys> kysymykset) {
+	this.kysymykset = kysymykset;
+}
+
 public Kysely() {
 	super();
 	this.id = 0;
