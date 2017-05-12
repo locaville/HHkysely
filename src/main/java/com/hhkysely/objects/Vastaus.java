@@ -7,27 +7,26 @@ public class Vastaus {
 	private int id;
 	private String teksti;
 	private int kysymysid;
+	private int vastaajaid;
 	private ArrayList<Vaihtoehto> vaihtoehdot;
 
 	
 
 	public Vastaus() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Vastaus(int id, String teksti) {
-		super();
-		this.id = id;
-		this.teksti = teksti;
+		this.id = 0;
+		this.teksti = null;
 		this.kysymysid = 0;
+		this.vastaajaid = 0;
 		this.vaihtoehdot = new ArrayList<Vaihtoehto>();
 	}
 	
-	public Vastaus(int id, int kysymysid, String teksti, ArrayList<Vaihtoehto> vaihtoehdot) {
+	public Vastaus(int id, int kysymysid, String teksti, int vastaajaid, ArrayList<Vaihtoehto> vaihtoehdot) {
 		super();
 		this.id = id;
 		this.teksti = teksti;
 		this.kysymysid = kysymysid;
+		this.vastaajaid = vastaajaid;
 		if(vaihtoehdot != null ){
 			this.vaihtoehdot = vaihtoehdot;
 		}else {
@@ -35,6 +34,30 @@ public class Vastaus {
 		}
 		
 	}
+	
+	public void addVaihtoehto(Vaihtoehto vaihtoehto) {
+		if (vaihtoehto != null) {
+			this.vaihtoehdot.add(vaihtoehto);
+		}
+	}
+	
+	public Vaihtoehto getVaihtoehto(int index) {
+		if (index >= 0 && index < this.vaihtoehdot.size()){
+			return this.vaihtoehdot.get(index);
+		}else{
+			System.out.println("indeksi ei kelpaa!");
+		}
+		
+		return null;
+	}
+	
+	public int getVastaajaid() {
+		return vastaajaid;
+	}
+	public void setVastaajaid(int vastaajaid) {
+		this.vastaajaid = vastaajaid;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -60,10 +83,14 @@ public class Vastaus {
 	public void setVaihtoehdot(ArrayList<Vaihtoehto> vaihtoehdot) {
 		this.vaihtoehdot = vaihtoehdot;
 	}
+
 	@Override
 	public String toString() {
-		return "Vastaus [id=" + id + ", teksti=" + teksti + ", kysymysid=" + kysymysid + ", vaihtoehdot=" + vaihtoehdot + "]";
+		return "Vastaus [id=" + id + ", teksti=" + teksti + ", kysymysid="
+				+ kysymysid + ", vastaajaid=" + vastaajaid + ", vaihtoehdot="
+				+ vaihtoehdot + "]";
 	}
+	
 	
 	
 	

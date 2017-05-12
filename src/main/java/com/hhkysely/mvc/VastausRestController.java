@@ -1,5 +1,7 @@
 package com.hhkysely.mvc;
 
+import java.util.ArrayList;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -11,9 +13,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hhkysely.dao.VastausDAO;
+import com.hhkysely.objects.Kysely;
 import com.hhkysely.objects.Vastaaja;
+import com.hhkysely.objects.Vastaus;
 
 
 @Controller
@@ -29,6 +34,16 @@ public class VastausRestController {
 		vdao.talletaVastaukset(id, vastaaja);
 		logger.info(vastaaja.toString());
 		return new ResponseEntity<String>(HttpStatus.OK);
-}
+	}
+	
+	@RequestMapping(value="/vastaukset", method = RequestMethod.GET, produces = "application/json")
+	@ResponseBody
+	public ArrayList<Vastaus> haeVastauksetJSON() throws Exception {
+		
+		ArrayList vastaukset = vdao.haeVastaukset();
+		
+		
+		return  vastaukset;
+	}
 
 }
