@@ -74,7 +74,7 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping(value = "/kysymys", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/kysymys", method = RequestMethod.GET)
 	
 	public ModelAndView kysymys() {
 		
@@ -114,7 +114,41 @@ public class HomeController {
 		
 		return modelAndView;
 	}
+*/
 	
+	@RequestMapping(value = "/kyselynKysymykset", method = RequestMethod.GET)
+	
+	public ModelAndView kysymys() {
+		
+		//ModelAndView palauttaa näkymän lisäksi model
+		return new ModelAndView("kyselynKysymykset", "kysymys", new KysymysImpl());
+		
+	}
+	
+	@RequestMapping(value = "/kyselynKysymykset", method = RequestMethod.POST)
+	public ModelAndView kyselynKysymykset(@ModelAttribute("kysymys") KysymysImpl kysymys) {
+		
+		dao.talleta(kysymys);
+		ModelAndView modelAndView = new ModelAndView();
+
+		modelAndView.setViewName("kyselynKysymykset");
+		
+		String tyyppi = "Tyhja";
+		
+		if(kysymys.getTyyppiid()==1){
+			tyyppi="Checkbox";
+		}else if(kysymys.getTyyppiid()==2){
+			tyyppi="Radiobutton";
+		}else if(kysymys.getTyyppiid()==3){
+			tyyppi="Teksti";
+		}
+		
+		// .addObject tallenna model objektin 
+		modelAndView.addObject("kysymys", kysymys);
+		modelAndView.addObject("tyyppi", tyyppi);
+		
+		return modelAndView;
+	}
 
 @RequestMapping(value = "/valmisKysely", method = RequestMethod.POST)
 	public ModelAndView listAll(@ModelAttribute("kysely")KyselyImpl kysely) {
