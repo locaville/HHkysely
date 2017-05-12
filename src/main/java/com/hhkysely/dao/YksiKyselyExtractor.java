@@ -10,6 +10,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 import com.hhkysely.objects.Kysely;
+import com.hhkysely.objects.KyselyImpl;
 import com.hhkysely.objects.Kysymys;
 import com.hhkysely.objects.KysymysImpl;
 import com.hhkysely.objects.Vaihtoehto;
@@ -32,7 +33,7 @@ public class YksiKyselyExtractor implements ResultSetExtractor<Kysely> {
 				String nimi = rs.getString("nimi");
 				String tyyppi = rs.getString("tyyppi");
 				String tila = rs.getString("tila");
-				kysely = new Kysely(id, nimi, tyyppi, tila, null);
+				kysely = new KyselyImpl(id, nimi, tyyppi, tila, null);
 				map.put(id, kysely);
 			}
 			int kysymysid = rs.getInt("kysymysid");

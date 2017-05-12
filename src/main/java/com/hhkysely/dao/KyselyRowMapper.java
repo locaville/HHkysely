@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.hhkysely.objects.Kysely;
+import com.hhkysely.objects.KyselyImpl;
 import com.hhkysely.objects.Kysymys;
 import com.hhkysely.objects.KysymysImpl;
 import com.hhkysely.objects.Tyyppi;
@@ -16,10 +17,10 @@ import com.hhkysely.objects.Tyyppi;
 public class KyselyRowMapper implements RowMapper<Kysymys> {
 	
 	public Kysely kyselyMapRow(ResultSet rs, int rowNum) throws SQLException {
-		Kysely k = new Kysely();
+		Kysely k = new KyselyImpl();
 		
 		k.setId(rs.getInt("kyselyid"));
-		k.setTeksti(rs.getString("nimi"));
+		k.setNimi(rs.getString("nimi"));
 		k.setTyyppi(rs.getString("tyyppi"));
 		k.setTila(rs.getString("tila"));
 		

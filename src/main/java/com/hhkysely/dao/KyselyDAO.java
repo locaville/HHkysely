@@ -7,7 +7,7 @@ public interface KyselyDAO {
 	
 	public abstract void talleta(Kysymys kysymys);
 	
-	// KESKEN ER�INEN TALLENNA METODILLE KYSELYLLE public abstract void talleta(Kysely kysely);
+	public abstract void talletaKysely(Kysely kysely);
 
 	// REST-metodille
 	public abstract Kysely haeKysely(int id) throws Exception;

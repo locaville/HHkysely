@@ -14,7 +14,7 @@
 <body>
 
 <h1>Lis&auml;&auml; kysely</h1>
-	<form action="" method="POST">
+	<form action="valmisKysely" method="POST" modelAttribute="kysely">
 	<table>
 		<tr><td>Nimi</td><td><input type="text" name="nimi" placeholder="Kyselyn nimi"/></td></tr>
 		<tr><td>Tyyppi</td><td><input type="text" name="tyyppi" placeholder="Koulukysely"/></td></tr>

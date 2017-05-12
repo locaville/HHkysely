@@ -19,21 +19,21 @@
 				<tr>
 					<td>ID</td>
 					<td>Nimi</td>
-					<td>Teksti</td>
 					<td>Tyyppi</td>
+					<td>Tila</td>
 					<td>+/-</td>
 				</tr>
 			</thead>
-<!-- 			<tbody> -->
-<%-- 				<c:forEach items="${kysymys}" var="kysymys"> --%>
-<!-- 					<tr> -->
-<%-- 						<td><c:out value="${kysymys.id}" /></td> --%>
-<%-- 						<td><c:out value="${kysymys.nimi}" /></td> --%>
-<%-- 						<td><c:out value="${kysymys.teksti}" /></td> --%>
-<%-- 						<td><c:out value="${kysymys.tyyppiid}" /></td> --%>
-<!-- 					</tr> -->
+			<tbody>
+<%-- 				<c:forEach items="${kysely}" var="kysely"> --%>
+					<tr>
+						<td><c:out value="${kysely.id}" /></td>
+						<td><c:out value="${kysely.nimi}" /></td>
+						<td><c:out value="${kysely.tyyppi}" /></td>
+						<td><c:out value="${kysely.tila}" /></td>
+					</tr>
 <%-- 				</c:forEach> --%>
-<!-- 			</tbody> -->
+			</tbody>
 
 		<tfoot>
 			

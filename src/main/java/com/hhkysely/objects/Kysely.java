@@ -1,96 +1,24 @@
 package com.hhkysely.objects;
 
-import java.util.ArrayList;
+public interface Kysely {
 
-public class Kysely {
+	public abstract int getId();
+
+	public abstract void setId(int id);
+
+	public abstract String getNimi();
+
+	public abstract void setNimi(String nimi);
 	
-	private int id;
-	private String teksti;
-	private String tyyppi;
-	private String tila;
-	private ArrayList<Kysymys> kysymykset;
-		
-
-public Kysely(int id, String teksti, String tyyppi, String tila,
-		ArrayList<Kysymys> kysymykset) {
-	super();
-	this.id = id;
-	this.teksti = teksti;
-	this.tyyppi = tyyppi;
-	this.tila = tila;
-	if (kysymykset == null){
-		this.kysymykset = new ArrayList<Kysymys>();
-	}else {
-		this.kysymykset = kysymykset;
-	}
-}
-
-public ArrayList<Kysymys> getKysymykset() {
-	return kysymykset;
-}
-
-public void setKysymykset(ArrayList<Kysymys> kysymykset) {
-	this.kysymykset = kysymykset;
-}
-
-public Kysely() {
-	super();
-	this.id = 0;
-	this.teksti = null;
-	this.tyyppi = null;
-	this.tila = null;
-	this.kysymykset = new ArrayList<Kysymys>();
-}
-
-public void addKysymys(Kysymys kysymys) {
-	if (kysymys != null) {
-		this.kysymykset.add(kysymys);
-	}
-}
-
-public Kysymys getKysymys(int index) {
-	if (index >= 0 && index < this.kysymykset.size()){
-		return this.kysymykset.get(index);
-	}else {
-		System.out.println("Indeksi ei kelpaa!");
-	}
+	public abstract String getTyyppi();
 	
-	return null;
-}
-
-public String getTila() {
-	return tila;
-}
-
-public void setTila(String tila) {
-	this.tila = tila;
-}
-
-public int getId() {
-	return id;
-}
-
-public void setId(int id) {
-	this.id = id;
-}
-public String getTeksti (){
-	return teksti;
-}
-public void setTeksti(String teksti){
-	this.teksti = teksti;
-}
-public String getTyyppi(){
-	return tyyppi;
-}
-public void setTyyppi(String tyyppi){
-	this.tyyppi = tyyppi;
-}
-
-@Override
-public String toString() {
-	return "Kysely [id=" + id + ", teksti=" + teksti + ", tyyppi=" + tyyppi
-			+ ", tila=" + tila + ", kysymykset=" + kysymykset + "]";
-}
+	public abstract void setTyyppi(String tyyppi);
 	
-
+	public abstract String getTila();
+	
+	public abstract void setTila(String tila);
+	
+	public abstract void addKysymys(Kysymys kysymys);
+	
+	public abstract Kysymys getKysymys(int index);
 }

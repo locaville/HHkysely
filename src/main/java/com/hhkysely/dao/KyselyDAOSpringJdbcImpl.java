@@ -95,36 +95,33 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 
 	
 
- /*KESKEN ER�INEN TALLENNA METODI KYSELYILLE
-  * public void talletaKysely(Kysely k) {
-	final String sql = "insert into kysely(nimi,tyyppi,tila,alkamispvm,luontipvm) values(?,?,?,?,?)";
-	//anonyymi sisäluokka tarvitsee vakioina välitettävät arvot,
-	//jotta roskien keruu onnistuu tämän metodin suorituksen päättyessää. 
-	final String teksti = k.getTeksti();
-	final int kyselyid = k.getKyselyid();
-	final int tyyppiid = k.getTyyppiid();
-	//final Tyyppi tyyppi = k.getTyyppi();
-	
-	
-	//jdbc pistää generoidun id:n tänne talteen
-	KeyHolder idHolder = new GeneratedKeyHolder();
-    
-	//suoritetaan päivitys itse määritellyllä PreparedStatementCreatorilla ja KeyHolderilla
-	jdbcTemplate.update(
-    	    new PreparedStatementCreator() {
-    	        public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
-    	            PreparedStatement ps = connection.prepareStatement(sql, new String[] {"id"});
-    	            ps.setString(1, teksti);
-    	            //ps.setInt(2, kyselyid);
-    	            ps.setInt(2, tyyppiid);
-    	            //ps.setInt(3, tyyppi.getId());
-    	            return ps;
-    	        }
-    	    }, idHolder);
-    
-	//tallennetaan id takaisin beaniin, koska
-	//kutsujalla pitäisi olla viittaus samaiseen olioon
-    k.setId(idHolder.getKey().intValue());
+	public void talletaKysely(Kysely k) {
+		final String sql = "insert into kysely(nimi,tyyppi,tila,alkamispvm,luontipvm) values(?,?,?,'','')";
+		//anonyymi sisäluokka tarvitsee vakioina välitettävät arvot,
+		//jotta roskien keruu onnistuu tämän metodin suorituksen päättyessää. 
+		final String nimi = k.getNimi();
+		final String tyyppi = k.getTyyppi();
+		final String tila = k.getTila();
+		
+		//jdbc pistää generoidun id:n tänne talteen
+		KeyHolder idHolder = new GeneratedKeyHolder();
+	    
+		//suoritetaan päivitys itse määritellyllä PreparedStatementCreatorilla ja KeyHolderilla
+		jdbcTemplate.update(
+	    	    new PreparedStatementCreator() {
+	    	        public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+	    	            PreparedStatement ps = connection.prepareStatement(sql, new String[] {"id"});
+	    	            ps.setString(1, nimi);
+	    	            ps.setString(2, tyyppi);
+	    	            ps.setString(3, tila);
+	    	            return ps;
+	    	        }
+	    	    }, idHolder);
+	    
+		//tallennetaan id takaisin beaniin, koska
+		//kutsujalla pitäisi olla viittaus samaiseen olioon
+	    k.setId(idHolder.getKey().intValue());
 
-}*/
+	}
+
 }

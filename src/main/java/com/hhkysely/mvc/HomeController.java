@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hhkysely.dao.KyselyDAO;
+import com.hhkysely.objects.KyselyImpl;
 import com.hhkysely.objects.KysymysImpl;
 
 /**
@@ -114,19 +115,18 @@ public class HomeController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value = "/valmisKysely", method = RequestMethod.POST)
-	public ModelAndView listAll(@ModelAttribute("kysely")KysymysImpl kysymys) {
+
+@RequestMapping(value = "/valmisKysely", method = RequestMethod.POST)
+	public ModelAndView listAll(@ModelAttribute("kysely")KyselyImpl kysely) {
 		
 		logger.info("Valmis Kysely");
 		
-		//ModelAndView palauttaa näkymän lisäksi model
+		dao.talletaKysely(kysely);
 		
 		ModelAndView modelAndView = new ModelAndView();
 		
 		// .setViewName tallenna näkymän niemen 
 		modelAndView.setViewName("valmisKysely");
-		
-		
 		return modelAndView;
 	}
 	
