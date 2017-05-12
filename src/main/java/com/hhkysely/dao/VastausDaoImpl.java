@@ -9,13 +9,17 @@ import java.util.List;
 import javax.inject.Inject;
 
 
+
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.hhkysely.mvc.HomeController;
+import com.hhkysely.objects.Kysely;
 import com.hhkysely.objects.Kysymys;
 import com.hhkysely.objects.Vaihtoehto;
 import com.hhkysely.objects.Vastaaja;
@@ -106,5 +110,21 @@ import com.hhkysely.objects.Vastaus;
 			    });
 			}
 			}
+		}
+		
+		@Override
+		public ArrayList<Vastaus> haeVastaukset() throws Exception {
+			String sql = "SELECT * FROM vastaus LEFT JOIN vaihtoehto ON vastaus.kysymysid=vaihtoehto.kysymysid ORDER BY vastausid;";
+			//Object[] parametrit = new Object[] { id };
+			ResultSetExtractor<ArrayList<Vastaus>> extractor = new KaikkiVastauksetExtractor();
+			
+		    ArrayList<Vastaus> vastaukset = new ArrayList<Vastaus>();
+		    try { 
+		    	vastaukset = jdbcTemplate.query(sql, extractor);
+		    } catch(IncorrectResultSizeDataAccessException e) {
+		    	throw new Exception(e);
+		    }
+		    return vastaukset;
+		              
 		}
 	}
