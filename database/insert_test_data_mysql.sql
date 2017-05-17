@@ -34,7 +34,7 @@ VALUES
 INSERT INTO
 	vaihtoehto
 VALUES
-
+	(666,'',1),
 	(1,'maito',1),
 	(2,'leipä',1),
 	(3,'mehu',1),
