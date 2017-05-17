@@ -35,5 +35,4 @@ public class KyselyRowMapper implements RowMapper<Kysymys> {
 		
 		return k;
 	}
-
 }

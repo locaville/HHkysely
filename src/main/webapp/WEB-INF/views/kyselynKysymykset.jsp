@@ -7,14 +7,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="<c:url value="resources/css/home.css" />" rel="stylesheet" type="text/css">
+<link href="<c:url value="../resources/css/home.css" />" rel="stylesheet" type="text/css">
 <title>Lisää kysymys</title>
 </head>
 <body>
 
 <h1>Kyselyyn lisättävä kysymys</h1>
 
-<form:form method="POST" modelAttribute="kysymys" action="kyselynKysymykset" class="box login">
+<form:form method="POST" modelAttribute="kysymys" action="" class="box login">
 	<fieldset class="boxBody">
 	  <form:label path="teksti">Kysymyksen teksti</form:label>
 	  <form:input onfocus="true" size="150" path="teksti" placeholder="teksti"></form:input>
@@ -59,7 +59,7 @@
 
 
 
-<p><a href="create">create</a></p>	
+<p><a href="../create">create</a></p>	
 
 <p><a href="/mvc">home</a></p>	
 

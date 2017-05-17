@@ -6,12 +6,14 @@ import java.util.Date;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -116,19 +118,23 @@ public class HomeController {
 	}
 */
 	
-	@RequestMapping(value = "/kyselynKysymykset", method = RequestMethod.GET)
+	@RequestMapping(value = "/kyselynKysymykset/{id}", method = RequestMethod.GET)
 	
-	public ModelAndView kysymys() {
+	public ModelAndView kysymys(@PathVariable Integer id) {
+		
+		
 		
 		//ModelAndView palauttaa näkymän lisäksi model
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("kysely", id);
 		return new ModelAndView("kyselynKysymykset", "kysymys", new KysymysImpl());
 		
 	}
 	
-	@RequestMapping(value = "/kyselynKysymykset", method = RequestMethod.POST)
-	public ModelAndView kyselynKysymykset(@ModelAttribute("kysymys") KysymysImpl kysymys) {
+	@RequestMapping(value = "/kyselynKysymykset/{id}", method = RequestMethod.POST)
+	public ModelAndView kyselynKysymykset(HttpServletRequest request, @PathVariable Integer id, @ModelAttribute("kysymys") KysymysImpl kysymys) {
 		
-		dao.talleta(kysymys);
+		dao.talleta(kysymys, id);
 		ModelAndView modelAndView = new ModelAndView();
 
 		modelAndView.setViewName("kyselynKysymykset");
@@ -150,6 +156,24 @@ public class HomeController {
 		return modelAndView;
 	}
 
+	@RequestMapping(value = "/valmisKysely", method = RequestMethod.POST)
+	public ModelAndView listAll(@ModelAttribute("kysely")KyselyImpl kysely) {
+		
+		logger.info("Valmis Kysely");
+		
+		dao.talletaKysely(kysely);
+		logger.info("Kyselyid: "+ kysely.getId());
+		ModelAndView modelAndView = new ModelAndView();
+		
+		
+		// .setViewName tallenna näkymän niemen 
+//		redirectAttributes.addFlashAttribute("redirect", true);
+		modelAndView.setViewName("redirect:/kyselynKysymykset/" + kysely.getId());
+		return  modelAndView;
+	}
+	
+	
+/*
 @RequestMapping(value = "/valmisKysely", method = RequestMethod.POST)
 	public ModelAndView listAll(@ModelAttribute("kysely")KyselyImpl kysely) {
 		
@@ -162,6 +186,6 @@ public class HomeController {
 		// .setViewName tallenna näkymän niemen 
 		modelAndView.setViewName("valmisKysely");
 		return modelAndView;
-	}
+	}*/
 	
 }

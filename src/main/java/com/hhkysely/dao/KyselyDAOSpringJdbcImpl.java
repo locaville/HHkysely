@@ -2,6 +2,7 @@ package com.hhkysely.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.inject.Inject;
@@ -10,7 +11,6 @@ import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -41,14 +41,14 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 	 * Tallettaa parametrina annetun henkilön tietokantaan.
 	 * Tietokannan generoima id asetetaan parametrina annettuun olioon.
 	 */
-	public void talleta(Kysymys k) {
-		final String sql = "insert into kysymys(teksti,kyselyid,tyyppiid) values(?,1,?)";
+	public void talleta(Kysymys k, int kyselyid) {
+		final String sql = "insert into kysymys(teksti,kyselyid,tyyppiid) values(?,?,?)";
 		
 		//anonyymi sisäluokka tarvitsee vakioina välitettävät arvot,
 		//jotta roskien keruu onnistuu tämän metodin suorituksen päättyessää. 
 		final String teksti = k.getTeksti();
 		final int tyyppiid = k.getTyyppiid();
-
+		final int kysely = kyselyid;
 		//final Tyyppi tyyppi = k.getTyyppi();
 		
 		
@@ -61,9 +61,8 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 	    	        public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
 	    	            PreparedStatement ps = connection.prepareStatement(sql, new String[] {"id"});
 	    	            ps.setString(1, teksti);
-	    	            //ps.setInt(2, kyselyid);
-	    	            ps.setInt(2, tyyppiid);
-	    	            //ps.setInt(3, tyyppi.getId());
+	    	            ps.setInt(2, kysely);
+	    	            ps.setInt(3, tyyppiid);
 	    	            return ps;
 	    	        }
 	    	    }, idHolder);
@@ -124,4 +123,18 @@ public class KyselyDAOSpringJdbcImpl implements KyselyDAO {
 
 	}
 
+	
+	/*public int etsiKyselyID(String nimi) {
+		Connection connection;
+		String selectSQL = "select id from kysely where nimi = ?";
+		PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
+		preparedStatement.setInt(1, 1001);
+		ResultSet rs = preparedStatement.executeQuery(selectSQL );
+		int id = rs.getInt("id");
+		return id;
+
+	}*/
+
+	
+	
 }

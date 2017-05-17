@@ -46,9 +46,9 @@
  
 
 
-<p><a href="create">Luo kysely</a></p>	
+<p><a href="create">Luo kysely</a></p>
 
-<p><a href="kysymys">Luo kysymys</a></p>	
+<!-- <p><a href="kysymys">Luo kysymys</a></p>	 -->
 
 </body>
 </html>
