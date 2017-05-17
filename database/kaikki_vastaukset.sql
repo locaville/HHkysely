@@ -1,0 +1,1 @@
+SELECT * FROM vastaus LEFT JOIN vaihtoehto ON vastaus.kysymysid=vaihtoehto.kysymysid ORDER BY vastausid;

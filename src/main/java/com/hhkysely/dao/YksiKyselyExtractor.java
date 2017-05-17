@@ -36,7 +36,7 @@ public class YksiKyselyExtractor implements ResultSetExtractor<Kysely> {
 				kysely = new KyselyImpl(id, nimi, tyyppi, tila, null);
 				map.put(id, kysely);
 			}
-			int kysymysid = rs.getInt("kysymysid");
+			int kysymysid = rs.getInt("kysymys.kysymysid");
 			kysymys = kysmap.get(kysymysid);
 			if (kysymys == null) {
 				String teksti = rs.getString("kysymys.teksti");
