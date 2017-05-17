@@ -114,7 +114,7 @@ import com.hhkysely.objects.Vastaus;
 		
 		@Override
 		public ArrayList<Vastaus> haeVastaukset() throws Exception {
-			String sql = "SELECT * FROM vastaus LEFT JOIN vaihtoehto ON vastaus.kysymysid=vaihtoehto.kysymysid ORDER BY vastausid;";
+			String sql = "SELECT vastausid, vastaus.teksti, vastaus.vaihtoehtoid, vastaus.kysymysid, vastaus.vastaajaid, vaihtoehto.teksti FROM vastaus INNER JOIN vaihtoehto ON vastaus.vaihtoehtoid=vaihtoehto.vaihtoehtoid ORDER BY vastausid;";
 			//Object[] parametrit = new Object[] { id };
 			ResultSetExtractor<ArrayList<Vastaus>> extractor = new KaikkiVastauksetExtractor();
 			
